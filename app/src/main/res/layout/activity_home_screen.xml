@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="isProgress"
+            type="Boolean" />
+        <import type="android.view.View"/>
+
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/purple_200"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.HomeScreenActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_700">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            app:titleTextColor="@color/white"
+            android:layout_width="match_parent"
+            app:navigationIcon="@drawable/ic_baseline_dehaze_24"
+            android:gravity="center"
+            android:layout_height="?attr/actionBarSize">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/_16sp"
+                >
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginEnd="36dp"
+
+                    android:textColor="@color/white"
+                    android:text="@string/movies"
+                    android:textSize="@dimen/_16sp"/>
+                <ImageView
+                    android:layout_centerVertical="true"
+
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_search"/>
+            </RelativeLayout>
+
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:background="@color/purple_200"
+            android:layout_height="match_parent"
+            tools:context=".view.activity.HomeScreenActivity">
+
+    <com.yarolegovich.discretescrollview.DiscreteScrollView
+        android:id="@+id/movieList"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_10dp"
+        android:layout_height="@dimen/_200dp"
+      />
+
+    <TextView
+        android:id="@+id/showTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_10dp"
+        android:textSize="@dimen/_16sp"
+        android:textColor="@color/white"
+        android:text="@string/now_showing"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/showListRecyclerView"
+        android:layout_marginTop="@dimen/_10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/movie_item"
+        />
+
+        </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

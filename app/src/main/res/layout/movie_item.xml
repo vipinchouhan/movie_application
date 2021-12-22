@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="movie"
+            type="com.example.movieapplication.model.Movie" />
+        <variable
+            name="onItemClickListener"
+            type="com.example.movieapplication.callback.OnItemClickListener" />
+    </data>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_270dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="8dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageview"
+        android:transitionName="profile"
+        android:layout_width="match_parent"
+        android:scaleType="centerCrop"
+        image_url="@{movie.featured_image!=null ? movie.featured_image: ``}"
+        android:layout_height="@dimen/_200dp"
+        tools:background="@tools:sample/backgrounds/scenic"/>
+
+
+</androidx.cardview.widget.CardView>
+</layout>
